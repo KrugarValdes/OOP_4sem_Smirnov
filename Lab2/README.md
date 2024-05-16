@@ -12,8 +12,8 @@ LR2
 
 Редирект страниц  через сервлеты
 
-<img src="main.png" width="600" height="290">
-<img src="about.png" width="600" height="290">
-<img src="services.png" width="600" height="290">
-<img src="contact.png" width="600" height="290">
-<img src="feedback.png" width="600" height="290">
+<img src="main.png" width="650" height="350">
+<img src="about.png" width="650" height="350">
+<img src="services.png" width="650" height="350">
+<img src="contact.png" width="650" height="350">
+<img src="feedback.png" width="650" height="350">

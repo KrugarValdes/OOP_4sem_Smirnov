@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чтение</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet" type="text/css">
+<style>
+    body {
+        padding-top: 5rem;
+    }
+    .container1 {
+        max-width: 1000px;
+        margin: auto;
+    }
+    .custom-navbar {
+        background-color: #edc08a; /* Темно-оранжевый фон навигации */
+        color: #fff;
+    }
+
+h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #fff;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.btn-home {
+    background-color: #f6a256; /* Темно-оранжевая кнопка */
+    color: #fff;
+    border: none;
+}
+
+.btn-home:hover {
+    background-color: #ec5a28; /* Оранжевый при наведении */
+}
+
+table {
+    background-color: #FFF5E1; /* Светло-оранжевый фон таблицы */
+}
+
+th {
+    background-color: #dfaf73; /* Темно-оранжевый заголовок таблицы */
+    color: #fff;
+}
+
+td, th {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}</style>
+</head>
+<body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const bookList = document.getElementById('bookList');
+
+        // Загрузка списка книг при загрузке страницы
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:8080/lab4_war_exploded/book', true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                const books = JSON.parse(xhr.responseText);
+                displayBooks(books);
+            } else {
+                console.error('Произошла ошибка при загрузке списка книг:', xhr.statusText);
+            }
+        };
+
+        xhr.send();
+
+        function displayBooks(books) {
+            let tableHTML = `
+    <table class="table table-striped table-bordered " style="width: 100%;">
+        <thead class="thead-dark">
+            <tr>
+                <th style="width: 20%;">Название</th>
+                <th style="width: 20%;">Автор</th>
+                <th style="width: 20%;">Жанр</th>
+                <th style="width: 20%;">Год выпуска</th>
+                <th style="width: 20%;">ISBN</th>
+            </tr>
+        </thead>
+        <tbody>
+    `;
+
+            books.forEach(function (book) {
+                tableHTML += `
+            <tr>
+                <td>${book.title}</td>
+                <td>${book.author}</td>
+                <td>${book.genre}</td>
+                <td>${book.year}</td>
+                <td>${book.isbn}</td>
+            </tr>
+        `;
+            });
+
+            tableHTML += `
+        </tbody>
+    </table>
+    `;
+
+            bookList.innerHTML = tableHTML;
+        }
+    });
+</script>
+
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="с navbar-nav">
+            <li class="nav-item">
+                <form action="index.html">
+                    <button type="submit" class="btn btn-home" style="margin-left: 27px;">Home</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container1 mt-5">
+    <h1 style="color: #dfaf73">Список книг</h1>
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped table-bordered">
+                <thead>
+                </thead>
+                <tbody id="bookList">
+                <!-- Данные книг будут добавлены здесь через JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>

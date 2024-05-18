@@ -15,4 +15,4 @@
 <img src="Список2.png" width="650" height="350">
 <img src="Редактирование.png" width="650" height="350">
 <img src="Список3.png" width="650" height="350">
-<img src="Удаление.png">
+<img src="Удаление.png" width="650" height="350">

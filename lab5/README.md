@@ -13,7 +13,7 @@
 
 <img src="Добавление.png" width="650" height="350">
 <img src="Список1.png" width="650" height="350">
-<img src="Редактирование.png" width="650" height="350">
 <img src="Список2.png" width="650" height="350">
+<img src="Редактирование.png" width="650" height="350">
 <img src="Список3.png" width="650" height="350">
 <img src="Удаление.png">
